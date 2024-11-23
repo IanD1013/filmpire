@@ -5,14 +5,9 @@ import { useTheme } from '@mui/styles';
 
 import { useGetGenresQuery } from '../../services/TMDB';
 import useStyles from './styles';
+import genreIcons from '../../assets/genres';
 
 const categories = [
-  { label: 'Popular', value: 'popular' },
-  { label: 'Top Rated', value: 'top_rated' },
-  { label: 'Upcoming', value: 'upcoming' },
-];
-
-const demoCategories = [
   { label: 'Popular', value: 'popular' },
   { label: 'Top Rated', value: 'top_rated' },
   { label: 'Upcoming', value: 'upcoming' },
@@ -38,10 +33,10 @@ const SideBar = ({ setMobileOpen }) => {
         <ListSubheader>Categories</ListSubheader>
         {categories.map(({ label, value }) => (
           <Link key={value} className={classes.links} to="/">
-            <ListItem button onClick={() => {}}>
-              {/* <ListItemIcon>
-                <img src={blueLogo} alt="" className={classes.genreImages} height={30} />
-              </ListItemIcon> */}
+            <ListItem onClick={() => {}} button>
+              <ListItemIcon>
+                <img src={genreIcons[label.toLowerCase()]} alt="" className={classes.genreImages} height={30} />
+              </ListItemIcon>
               <ListItemText primary={label} />
             </ListItem>
           </Link>
@@ -59,10 +54,10 @@ const SideBar = ({ setMobileOpen }) => {
         ) : (
           data.genres.map(({ name, id }) => (
             <Link key={name} className={classes.links} to="/">
-              <ListItem button onClick={() => {}}>
-                {/* <ListItemIcon>
-                <img src={blueLogo} alt="" className={classes.genreImages} height={30} />
-              </ListItemIcon> */}
+              <ListItem onClick={() => {}} button>
+                <ListItemIcon>
+                  <img src={genreIcons[name.toLowerCase()]} alt="" className={classes.genreImages} height={30} />
+                </ListItemIcon>
                 <ListItemText primary={name} />
               </ListItem>
             </Link>
