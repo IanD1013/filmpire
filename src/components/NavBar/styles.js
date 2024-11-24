@@ -26,4 +26,9 @@ export default makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
+  mobileSearch: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
 }));
