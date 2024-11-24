@@ -21,8 +21,9 @@ const redLogo = 'https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a
 const SideBar = ({ setMobileOpen }) => {
   const theme = useTheme();
   const classes = useStyles();
-  const { data, isFetching } = useGetGenresQuery();
   const dispatch = useDispatch();
+  const { data, isFetching } = useGetGenresQuery();
+  const { genreIdOrCategoryName } = useSelector((state) => state.currentGenreOrCategory);
 
   return (
     <>
