@@ -66,11 +66,13 @@ export default makeStyles((theme) => ({
       flexDirection: 'column',
     },
   },
+
   modal: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   video: {
     width: '50%',
     height: '50%',

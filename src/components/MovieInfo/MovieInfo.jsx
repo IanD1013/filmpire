@@ -15,6 +15,7 @@ const MovieInfo = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { id } = useParams();
+  const [open, setOpen] = useState(false);
 
   const { data, error, isFetching } = useGetMovieQuery(id);
   const { data: recommendations } = useGetRecommendationsQuery({ list: 'recommendations', movie_id: id });
@@ -136,7 +137,7 @@ const MovieInfo = () => {
                 <Button target="_blank" rel="noopener noreferrer" href={`https://www.imdb.com/title/${data?.imdb_id}`} endIcon={<MovieIcon />}>
                   IMDB
                 </Button>
-                <Button onClick={() => {}} href="#" endIcon={<Theaters />}>
+                <Button onClick={() => setOpen(true)} href="#" endIcon={<Theaters />}>
                   Trailer
                 </Button>
               </ButtonGroup>
@@ -161,6 +162,7 @@ const MovieInfo = () => {
         </Grid>
       </Grid>
 
+      {/* MOVIE RECOMMENDATIONS */}
       <Box marginTop="5rem" width="100%">
         <Typography variant="h3" gutterBottom align="center">
           You might also like
@@ -168,6 +170,20 @@ const MovieInfo = () => {
 
         {recommendations ? <MovieList movies={recommendations} numberOfMovies={12} /> : <Box>Sorry, nothing was found.</Box>}
       </Box>
+
+      {/* MOVIE TRAILER */}
+      <Modal closeAfterTransition className={classes.modal} open={open} onClose={() => setOpen(false)}>
+        {data?.videos?.results?.length > 0 && (
+          <iframe
+            autoPlay
+            className={classes.video}
+            frameBorder="0"
+            title="Trailer"
+            src={`https://www.youtube.com/embed/${data.videos.results[0].key}`}
+            allow="autoplay"
+          />
+        )}
+      </Modal>
     </Grid>
   );
 };
