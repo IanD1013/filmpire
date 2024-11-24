@@ -49,6 +49,7 @@ export default makeStyles((theme) => ({
       padding: '0.5rem 1rem',
     },
   },
+
   castImage: {
     width: '100%',
     maxWidth: '7em',
@@ -56,7 +57,8 @@ export default makeStyles((theme) => ({
     objectFit: 'cover',
     borderRadius: '10px',
   },
-  buttonContainer: {
+
+  buttonsContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
