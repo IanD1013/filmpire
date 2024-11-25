@@ -39,7 +39,7 @@ const Actors = () => {
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item lg={5} xl={4}>
+        <Grid item lg={5} xl={4} align="center" style={{ marginTop: '2rem' }}>
           <img className={classes.image} src={`https://image.tmdb.org/t/p/w780/${data?.profile_path}`} alt={data.name} />
         </Grid>
 

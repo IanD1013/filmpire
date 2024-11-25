@@ -59,7 +59,7 @@ const MovieInfo = () => {
 
   return (
     <Grid container className={classes.containerSpaceAround}>
-      <Grid item sm={12} lg={4}>
+      <Grid item sm={12} lg={4} style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
         <img src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`} className={classes.poster} alt={data?.title} />
       </Grid>
 
@@ -82,7 +82,7 @@ const MovieInfo = () => {
           </Box>
 
           <Typography gutterBottom variant="h6" align="center">
-            {data?.runtime} min {data?.spoken_languages.length > 0 ? `/ ${data?.spoken_languages[0].name}` : ''}
+            {data?.runtime} min | Language: {data?.spoken_languages[0].name}
           </Typography>
         </Grid>
 
@@ -113,7 +113,15 @@ const MovieInfo = () => {
               ?.map(
                 (character, index) =>
                   character.profile_path && (
-                    <Grid key={index} item xs={4} md={2} component={Link} to={`/actors/${character.id}`} style={{ textDecoration: 'none' }}>
+                    <Grid
+                      key={index}
+                      item
+                      xs={4}
+                      md={2}
+                      component={Link}
+                      to={`/actors/${character.id}`}
+                      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textDecoration: 'none' }}
+                    >
                       <img className={classes.castImage} src={`https://image.tmdb.org/t/p/w500/${character.profile_path}`} alt={character.name} />
                       <Typography color="textPrimary" align="center">
                         {character?.name}
