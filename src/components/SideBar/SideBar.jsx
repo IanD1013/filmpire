@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Divider, List, ListItem, ListItemText, ListSubheader, ListItemIcon, Box, CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/styles';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 import { useGetGenresQuery } from '../../services/TMDB';
@@ -23,7 +23,6 @@ const SideBar = ({ setMobileOpen }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { data, isFetching } = useGetGenresQuery();
-  const { genreIdOrCategoryName } = useSelector((state) => state.currentGenreOrCategory);
 
   return (
     <>

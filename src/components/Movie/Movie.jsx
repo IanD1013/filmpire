@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
 
+import noImage from '../../assets/images/no-image-placeholder.webp';
+
 const Movie = ({ movie, index }) => {
   const classes = useStyles();
 
@@ -14,7 +16,8 @@ const Movie = ({ movie, index }) => {
           <img
             alt={movie.title}
             className={classes.image}
-            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://www.fillmurray.com/200/300'}
+            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : noImage}
+            style={movie.poster_path ? {} : { width: '200px', objectFit: 'cover' }}
           />
 
           <Typography className={classes.title} variant="h5">
