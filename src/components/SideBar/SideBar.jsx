@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Divider, List, ListItem, ListItemText, ListSubheader, ListItemIcon, Box, CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/styles';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 import { useGetGenresQuery } from '../../services/TMDB';
@@ -20,9 +20,14 @@ const redLogo = 'https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a
 
 const SideBar = ({ setMobileOpen }) => {
   const theme = useTheme();
+  const { genreIdOrCategoryName } = useSelector((state) => state.currentGenreOrCategory);
   const classes = useStyles();
   const dispatch = useDispatch();
   const { data, isFetching } = useGetGenresQuery();
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [genreIdOrCategoryName]);
 
   return (
     <>
