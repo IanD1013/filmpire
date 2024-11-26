@@ -62,7 +62,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    gap: '10px',
+    gap: '15px',
     flexWrap: 'wrap',
   },
 

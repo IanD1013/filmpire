@@ -24,7 +24,7 @@ const Movie = ({ movie, index }) => {
             {movie.title}
           </Typography>
 
-          <Tooltip disableTouchListener title={`${movie.vote_average} / 10`}>
+          <Tooltip disableTouchListener title={`${movie.vote_average.toFixed(1)} / 10`}>
             <div>
               <Rating readOnly value={movie.vote_average / 2} precision={0.1} />
             </div>

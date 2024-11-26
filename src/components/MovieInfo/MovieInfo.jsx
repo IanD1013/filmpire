@@ -104,7 +104,7 @@ const MovieInfo = () => {
             <Rating readOnly value={data.vote_average / 2} />
 
             <Typography gutterBottom variant="subtitle1" style={{ marginLeft: '10px' }}>
-              {data?.vote_average} / 10
+              {data?.vote_average.toFixed(1)} / 10
             </Typography>
           </Box>
 
