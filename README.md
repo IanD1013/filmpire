@@ -2,6 +2,8 @@
 
 A modern movie discovery platform built with React, featuring a beautiful Material-UI interface.
 
+![Image](https://github.com/user-attachments/assets/67fb9ca3-8a79-4550-b8f3-ee243f70cf69)
+
 ## Features
 
 - 🎯 Browse and search movies
